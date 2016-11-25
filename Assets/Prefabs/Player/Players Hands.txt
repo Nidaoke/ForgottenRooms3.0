@@ -1,0 +1,40 @@
+The hands have a 'TFR Hand Script' each, which talks directly to the Hand.cs script from the Oculus Touch plugin. I've made a few changes to the Hands.cs and commented all of them with // TFR Edit so we can easily retrieve them in the future.
+
+The structure is like so:
+RightHand
+- Hand.cs
+- TRFHandScript.cs
+
+-RightCuff
+-- TFRRightBracelet.cs
+-- RightCuff Buttons 1-3
+---Animations for each button
+---Audio Source
+---TFRRightBraceletDock.cs
+---Canvas with Sprites
+---Hologram Parent
+
+-Rift Hand
+--Animations
+--Point Trigger Collidor (With RightHand Tag)
+
+-------------------------------------------------------------
+
+LeftHand
+- Hand.cs
+- TRFHandScript.cs
+
+-LeftCuff
+--TFRLeftCuffManager.cs
+--LeftButtons 1 - 3
+
+
+--Hologram Screen
+--- Individual Screens(Which will have individual scripts, WIP).
+
+-Left Hand
+--Animations
+--Point Trigger Collidor (With LeftHand Tag)
+
+Last updated:
+Dean Day, 23/11/2016.

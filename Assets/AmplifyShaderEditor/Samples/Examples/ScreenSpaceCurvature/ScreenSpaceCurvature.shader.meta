@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 38c4f86a75e0d9e41aaa8fdb8130322f
+timeCreated: 1474456681
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  - _rock_n: {fileID: 2800000, guid: ff56e280f640c70488a8852477081d01, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

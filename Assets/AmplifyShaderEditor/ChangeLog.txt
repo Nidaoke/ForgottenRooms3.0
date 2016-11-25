@@ -1,0 +1,122 @@
+Release Notes v0.2.1 dev 001
+* Fixed multiple issues importing current version on top of v0.1.0 dev 001
+
+Release Notes v0.2.0 dev 003
+* Mask Clip Value when used is registered as a Material Property
+
+Release Notes v0.2.0 dev 002
+* Improved duplicate code detection system
+* Slight improvement on save/update times ( important for Live Mode )
+* Fixed issue with 'Texture Sample' node incorrectly outputting a float4 when no texture assigned and on Normal mode 
+* Fixed issue on not opening the correct shader from a material inspector if a new one is selected from its dropdown
+* Fixed issue with 'Length' node incorrectly changing its output type
+* Community Node additions
+    * The Four Headed Cat
+        * Flipbook UV Animation
+
+Release Notes v0.2.0 dev 001
+* Fixed issues with 'Get Local Var' node
+    * Output port type is now correctly set to its reference type
+    * Changed how references are saved so it won't be affected by order index re-ordering
+* Fixed issue with 'Power' node
+* Fixed issue with 'ATan2' node
+* Fixed issue with 'Cross' node
+* Community Node additions
+    * The Four Headed Cat
+        * Logical If
+        * Pixelate
+* Community Samples additions
+    * The Four Headed Cat 
+        * DissolveBurn
+    * Mourelas Konstantinos
+        * EnvironmentGradient
+		
+Release Notes v0.1.5 dev 001
+* Community Node additions
+    * The Four Headed Cat ( moved to a separate 'Logical Operators' category )
+        * Compare With Range
+        * Compare Not Equal
+        * Compare Lower Equal
+        * Compare Greater Equal
+        * Compare Lower
+        * Compare Greater
+    * Kebrus
+        * Vertex Tangent World
+        * Vertex Binormal World
+* 'Register Local Var' node changes:
+    * Is now independent from Master Node execution order and generates activation signals
+    * Will always be executed even if not connected to Master Node 
+    * Fixed issue updating name string array when loading from file		
+    * Added order index to control their declaration order( lesser index declared first )
+* Fixed issue on port type change not propagating in certain nodes
+* Hitting Escape key will disable context palette menu if active
+* Fixed issue where right mouse clicking on certain port areas would delete their wire connection
+* Minor improvement on nodes performance
+
+Release Notes v0.1.4 dev 002
+* Dynamic type nodes now also reacting to input port disconnections
+* Updated TFHCRemap node from benderete
+
+Release Notes v0.1.4 dev 001
+* Fixed issue with order index not being correctly read/written
+* Redone Refraction Shader according to rea suggestion 
+* Register Local Var node now has a title style similar to Property Nodes with the local var name always visible 
+* Added Get Local Var Node. It allows the user to use already registered local vars anywhere in the graph
+* Added Custom Node Remap ("TFHC - Remap") created by user benderete
+* Fixed issue on Texture Sample UV port not correctly casting to float2 when needed
+* Fixed issue with Texture Sample node not adapting layout when reference is in normal mode
+
+Release Notes v0.1.3 dev 003
+* Added RegisterLocalVar node. This is a node to improve shader readability in certain situations, as it forces the shader to create a local var containing its input value and always use that as output
+* Added Screen Color Texture Reference feature
+* Created Simple Refraction example ( Samples/SimpleRefraction ) 
+* Fixed issues with sampler instance resizing
+* Fixed issue with Fresnel node incident vector
+* Fixed issue with attemping connection removal on inexistent nodes ( bug affecting Append node )
+* Fixed issue with overwriting render type and queue values with Blend Mode default values on read from file
+
+Release Notes v0.1.3 dev 002
+* Fixed multiple issues with deleting a Texture Sample node being referenced by other nodes
+* Tweaked Texture Sample reference UI 
+
+Release Notes v0.1.3 dev 001
+* Fixed issue when releasing mouse drag on menu areas not resetting auto*pan
+* Tweaked Shader Instancing UI
+* Fixed issue with material inspector crashing when updating a property with ASE window turned off
+* Fixed issue with custom UI skins not being correctly initialized under some conditions
+* Added Texture Reference feature
+* Added 'Simple Blur' example to demonstrate how Texture referencing works
+* Added small 'Made with Amplify Shader Editor' info as comment on generated shaders
+
+Release Notes v0.1.2 dev 003
+* Fixed issues with opening materials via inspector with no ASE window initialized  
+
+Release Notes v0.1.2 dev 002
+* Added GPU Instancing ( see Samples/SimpleGPUInstancing example )
+* Added Screen Color node 
+* Fixed issue on version testing
+* Tweaked Master Node icon 
+* Added additional icon into top-left master node node indicating if gpu instancing is being used or not
+
+Release Notes v0.1.2 dev 001
+* Fixed typo on Texture Coordinate node
+* Added explicit control on Render Type and Queue. They will be automatically set when a Blend Mode is selected.
+* Added Fresnel node
+* Fixed Trigonometry typo 
+* Improved local var generation on op nodes
+* Added FWidth node
+* Fixed issue with not immediately updating shader when hitting the Live Shader Mode button
+
+Release Notes v0.1.1 dev 001
+* Community Contribution from kebrus: Added Rotator node, rotates UV Coordinates/ Vector2 nodes 
+* Fixed Vector2 Append Node bug
+* Fixed Int to Float cast issues
+* Added Shader title area on top canvas to forbidden node interaction area
+* Adjusted Auto-Pan behaviour
+* Fixed issue with nodes infinite loop detection
+* Tweaked mouse detection inside main canvas
+* Fixed Queue Order typo when building shader
+* Improved notifications when impossible cast is requested
+* Added new VectorFromMatrix which gets a specific row or column from a 3x3 or 4x4 matrix
+* Automatically hiding Order Index on Uniform Property Type nodes
+* Simpler Searchable Node List also being called by hitting the space bar if focus is on main node canvas

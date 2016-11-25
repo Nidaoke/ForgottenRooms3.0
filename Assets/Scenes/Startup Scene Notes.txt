@@ -1,0 +1,8 @@
+The Startup scene uses one single animation which is on the 'UI Canvas'.
+It will fade the company logos in and out, then the disclaimer which are all child objects.
+
+Once the animation is finished, it enables the 'Trigger Event' gameobject which has a 'Active Trigger' attached.
+This changes the scene to Scene(1), the Loading Screen scene when activated.
+
+Last updated:
+Dean Day, 09/11/2016.

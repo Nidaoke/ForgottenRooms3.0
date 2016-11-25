@@ -1,0 +1,123 @@
+fileFormatVersion: 2
+guid: 8919826200c72a0439b35e683b6d0231
+timeCreated: 1479215747
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ColourEmitters
+    100002: //RootNode
+    100004: LeftCuff_Button1
+    100006: LeftCuff_Button2
+    100008: LeftCuff_Button3
+    100010: LeftCuff_Coils
+    100012: LeftCuff_DialNeedle
+    100014: LeftCuff_Grills
+    100016: LeftCuff_Main
+    100018: LeftCuff_Pipes
+    100020: LeftCuff_Tubes
+    400000: ColourEmitters
+    400002: //RootNode
+    400004: LeftCuff_Button1
+    400006: LeftCuff_Button2
+    400008: LeftCuff_Button3
+    400010: LeftCuff_Coils
+    400012: LeftCuff_DialNeedle
+    400014: LeftCuff_Grills
+    400016: LeftCuff_Main
+    400018: LeftCuff_Pipes
+    400020: LeftCuff_Tubes
+    2300000: ColourEmitters
+    2300002: LeftCuff_Button1
+    2300004: LeftCuff_Button2
+    2300006: LeftCuff_Button3
+    2300008: LeftCuff_Coils
+    2300010: LeftCuff_DialNeedle
+    2300012: LeftCuff_Grills
+    2300014: LeftCuff_Main
+    2300016: LeftCuff_Pipes
+    2300018: LeftCuff_Tubes
+    3300000: ColourEmitters
+    3300002: LeftCuff_Button1
+    3300004: LeftCuff_Button2
+    3300006: LeftCuff_Button3
+    3300008: LeftCuff_Coils
+    3300010: LeftCuff_DialNeedle
+    3300012: LeftCuff_Grills
+    3300014: LeftCuff_Main
+    3300016: LeftCuff_Pipes
+    3300018: LeftCuff_Tubes
+    4300000: ColourEmitters
+    4300002: LeftCuff_Pipes
+    4300004: LeftCuff_Coils
+    4300006: LeftCuff_Grills
+    4300008: LeftCuff_Tubes
+    4300010: LeftCuff_Button3
+    4300012: LeftCuff_Button2
+    4300014: LeftCuff_Button1
+    4300016: LeftCuff_Main
+    4300018: LeftCuff_DialNeedle
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

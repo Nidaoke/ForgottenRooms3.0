@@ -1,0 +1,7 @@
+The Loading Screen scene automatically looks for the Player Prefs 'LoadScene' when it starts, if one is present it will load that scene.
+If there is no PlayerPref INT value, it will default to the Main Menu.
+
+Everything is stored under the TFRLoadingScreen script, which is attached to the Loading Screen Manager GameObject.
+
+Last updated:
+Dean Day, 09/11/2016.

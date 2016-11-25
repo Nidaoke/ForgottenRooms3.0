@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2394ae4cfdc788c4b9b0da26e95ce8d3
+timeCreated: 1476098132
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _DisolveGuide: {fileID: 2800000, guid: e4ec2a92d2183294d9d9be1f20a1fcdf, type: 3}
+  - _BurnRamp: {fileID: 2800000, guid: 1a7d1b42b9801f941beb155b314058f1, type: 3}
+  - _DisolveGuide: {fileID: 2800000, guid: e4ec2a92d2183294d9d9be1f20a1fcdf, type: 3}
+  - _DisolveGuide: {fileID: 2800000, guid: e4ec2a92d2183294d9d9be1f20a1fcdf, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
