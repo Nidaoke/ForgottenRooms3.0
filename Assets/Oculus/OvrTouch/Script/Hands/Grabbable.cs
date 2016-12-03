@@ -30,6 +30,9 @@ namespace OVRTouchSample
         [SerializeField]
         private bool m_PreventKinematic = false;
 
+        public bool resetPositionOnGrabEnd;
+        public Vector3 startingPosition;
+
         public bool AllowOffhandGrab
         {
             get { return m_allowOffhandGrab; }
@@ -85,6 +88,11 @@ namespace OVRTouchSample
             m_grabbedHand = null;
             m_grabbedCollider = null;
 
+            if (resetPositionOnGrabEnd)
+            {
+                transform.position = startingPosition;
+            }
+
             //TFR Edit
             if (m_IsInWall)
             {
@@ -118,6 +126,7 @@ namespace OVRTouchSample
         private void Start()
         {
             m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
+            startingPosition = transform.position;
         }
 
         private void OnDestroy()
