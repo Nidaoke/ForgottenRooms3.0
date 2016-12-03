@@ -12,6 +12,11 @@ namespace OVRTouchSample
     // Which object had its grabbed state changed, and whether the grab is starting or ending.
     public class Grabbable : MonoBehaviour
     {
+        // TFR EDIT
+        [Header("Edits to script commented //TFR EDIT")]
+        public bool m_IsInWall;
+        Transform m_BeforeWallPos;
+
         [SerializeField]
         private bool m_allowOffhandGrab = true;
         [SerializeField]
@@ -77,10 +82,21 @@ namespace OVRTouchSample
         {
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = m_grabbedKinematic;
-            rb.velocity = linearVelocity;
-            rb.angularVelocity = angularVelocity;
             m_grabbedHand = null;
             m_grabbedCollider = null;
+
+            //TFR Edit
+            if (m_IsInWall)
+            {
+                this.transform.position = m_BeforeWallPos.position;
+                this.transform.rotation = m_BeforeWallPos.rotation;
+                m_IsInWall = false;
+            }
+            else
+            {
+                rb.velocity = linearVelocity;
+                rb.angularVelocity = angularVelocity;
+            }
         }
 
         virtual protected void Awake()
@@ -116,6 +132,22 @@ namespace OVRTouchSample
         private void SendMsg(string msgName, object msg)
         {
             this.transform.SendMessage(msgName, msg, SendMessageOptions.DontRequireReceiver);
+        }
+
+        //TFR Edit
+        void OnTriggerEnter(Collider col)
+        {
+            if (col.CompareTag("Wall"))
+            {
+                m_IsInWall = true;
+                m_BeforeWallPos = this.transform;
+            }
+        }
+
+        void OnTriggerExit(Collider col)
+        {
+            if (col.CompareTag("Wall"))
+                m_IsInWall = false;
         }
     }
 }

@@ -275,7 +275,7 @@ namespace UnityEditor
 			int num = errors.Length;
 			GUILayout.Space( 5f );
 			GUILayout.Label( string.Format( "Errors ({0}):", num ), EditorStyles.boldLabel, new GUILayoutOption[ 0 ] );
-			int controlID = GUIUtility.GetControlID( CustomShaderInspector.kErrorViewHash, FocusType.Native );
+			int controlID = GUIUtility.GetControlID( CustomShaderInspector.kErrorViewHash, FocusType.Passive );
 			float minHeight = Mathf.Min( ( float ) num * 20f + 40f, 150f );
 			scrollPosition = GUILayout.BeginScrollView( scrollPosition, GUISkinEx.GetCurrentSkin().box, new GUILayoutOption[]
 			{

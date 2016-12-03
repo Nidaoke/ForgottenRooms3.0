@@ -41,6 +41,9 @@ namespace OVRTouchSample
         // TFR EDIT
         [Header("Edits to script commented //TFR EDIT")]
         public TFRHandScript m_TFRHandScript;
+        public bool m_IsInWall;
+        public GameObject m_RealHand;
+        public GameObject m_OculusHand;
 
         // NOTE: I attempted a FixedJoint option, attaching the held object by adding a FixedJoint object to the
         // hand and connecting the held object to it. However, since the Hand is allowed inside the geometry and the
@@ -210,6 +213,20 @@ namespace OVRTouchSample
         // judder. A fix is in progress, but not fixable on the user side at this time.
         private void FixedUpdate()
         {
+            if (m_IsInWall)
+            {
+                if (m_RealHand.activeSelf)
+                    m_RealHand.SetActive(false);
+                if (!m_OculusHand.activeSelf)
+                    m_OculusHand.SetActive(true);
+            }
+            else
+            {
+                if (!m_RealHand.activeSelf)
+                    m_RealHand.SetActive(true);
+                if (m_OculusHand.activeSelf)
+                    m_OculusHand.SetActive(false);
+            }
             if (m_touchAnchor != null)
             {
                 GetComponent<Rigidbody>().MovePosition(m_anchorOffsetPosition + m_touchAnchor.transform.position);
@@ -248,17 +265,33 @@ namespace OVRTouchSample
         private void OnTriggerEnter(Collider otherCollider)
         {
             // Get the grab trigger
-            Grabbable grabbable = otherCollider.GetComponent<Grabbable>() ?? otherCollider.GetComponentInParent<Grabbable>();
-            if (grabbable == null) return;
+            bool HitWall = otherCollider.CompareTag("Wall");
+            if (!HitWall)
+            {
+                Grabbable grabbable = otherCollider.GetComponent<Grabbable>() ?? otherCollider.GetComponentInParent<Grabbable>();
+                if (grabbable == null) return;
 
-            // Add the grabbable
-            int refCount = 0;
-            m_grabCandidates.TryGetValue(grabbable, out refCount);
-            m_grabCandidates[grabbable] = refCount + 1;
+                // Add the grabbable
+                int refCount = 0;
+                m_grabCandidates.TryGetValue(grabbable, out refCount);
+                m_grabCandidates[grabbable] = refCount + 1;
+            }
+            else
+            {
+                GrabEnd();
+                m_IsInWall = true;
+
+            }
         }
 
         private void OnTriggerExit(Collider otherCollider)
         {
+            bool HitWall = otherCollider.CompareTag("Wall");
+            if (HitWall)
+            {
+                m_IsInWall = false;
+            }
+
             Grabbable grabbable = otherCollider.GetComponent<Grabbable>() ?? otherCollider.GetComponentInParent<Grabbable>();
             if (grabbable == null) return;
 
@@ -278,6 +311,7 @@ namespace OVRTouchSample
             {
                 m_grabCandidates.Remove(grabbable);
             }
+
         }
 
         private float InputValueRateChange(bool isDown, float value)
@@ -351,7 +385,7 @@ namespace OVRTouchSample
 
         private void CheckForGrabOrRelease(float prevFlex)
         {
-            if ((m_flex >= THRESH_GRAB_BEGIN) && (prevFlex < THRESH_GRAB_BEGIN))
+            if ((m_flex >= THRESH_GRAB_BEGIN) && (prevFlex < THRESH_GRAB_BEGIN) && !m_IsInWall)
             {
                 GrabBegin();
             }

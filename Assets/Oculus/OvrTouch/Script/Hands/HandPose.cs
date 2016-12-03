@@ -13,6 +13,7 @@ namespace OVRTouchSample
         Default,
         Generic,
         PingPongBall,
+        LavaBox,
     }
 
     public enum HandPoseAttachType
