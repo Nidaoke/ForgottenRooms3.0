@@ -82,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AndromedaSystem\Scripts\Billboard\Billboard.cs" />
-    <Compile Include="Assets\InvisGrabbable.cs" />
     <Compile Include="Assets\Oculus\OSP\Scripts\OSPAudioSource.cs" />
     <Compile Include="Assets\Oculus\OSP\Scripts\OSPManager.cs" />
     <Compile Include="Assets\Oculus\OSP\Scripts\OSPReflectionZone.cs" />
@@ -146,6 +145,8 @@
     <Compile Include="Assets\Scripts\Universal\TFRRightBracelet.cs" />
     <Compile Include="Assets\Scripts\Universal\TFRRightBraceletDock.cs" />
     <Compile Include="Assets\TFRFacebookMockScript.cs" />
+    <Compile Include="Assets\TFRGrabbableParentObjectRotate.cs" />
+    <Compile Include="Assets\TTFRGrabbableParentObjectMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AmplifyShaderEditor\ChangeLog.txt" />

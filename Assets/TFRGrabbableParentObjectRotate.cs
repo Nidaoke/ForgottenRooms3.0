@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace OVRTouchSample
 {
-    public class GrabbableParentObjectRotate: MonoBehaviour
+    public class TFRGrabbableParentObjectRotate: MonoBehaviour
     {
 
         private Grabbable grabbable;
