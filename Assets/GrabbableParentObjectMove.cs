@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 namespace OVRTouchSample {
-    public class GrabbableParentObject : MonoBehaviour {
+    public class GrabbableParentObjectMove : MonoBehaviour {
 
         private Grabbable grabbable;
 
