@@ -130,8 +130,11 @@ namespace OVRTouchSample
             {
                 childObjectToGoBackTo = new GameObject();
                 childObjectToGoBackTo.name = "ChildObjectToGoBackTo";
-                childObjectToGoBackTo.transform.parent = GetComponent<TFRGrabbableParentObjectMove>().objectToMove.transform;
-                childObjectToGoBackTo.transform.localPosition = Vector3.zero;
+                if (GetComponent<TFRGrabbableParentObjectMove>() != null)
+                    childObjectToGoBackTo.transform.parent = GetComponent<TFRGrabbableParentObjectMove>().objectToMove.transform;
+                else if (GetComponent<TFRGrabbableParentObjectRotate>() != null)
+                    childObjectToGoBackTo.transform.parent = GetComponent<TFRGrabbableParentObjectRotate>().objectToRotate.transform;
+                childObjectToGoBackTo.transform.position = (Vector3.zero + transform.position);
             }
         }
 

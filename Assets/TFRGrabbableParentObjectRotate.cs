@@ -24,14 +24,17 @@ namespace OVRTouchSample
         // Update is called once per frame
         void Update()
         {
-            if (rotateX)
-                directionToLook = new Vector3(objectToRotate.transform.position.x, transform.position.y, transform.position.z);
-            else if(rotateY)
-                directionToLook = new Vector3(transform.position.x, objectToRotate.transform.position.y, transform.position.z);
-            else if(rotateZ)
-                directionToLook = new Vector3(transform.position.x, transform.position.y, objectToRotate.transform.position.z);
+            if (grabbable.IsGrabbed)
+            {
+                if (rotateX)
+                    directionToLook = new Vector3(objectToRotate.transform.position.x, transform.position.y, transform.position.z);
+                else if (rotateY)
+                    directionToLook = new Vector3(transform.position.x, objectToRotate.transform.position.y, transform.position.z);
+                else if (rotateZ)
+                    directionToLook = new Vector3(transform.position.x, transform.position.y, objectToRotate.transform.position.z);
 
-            objectToRotate.transform.LookAt(directionToLook);
+                objectToRotate.transform.LookAt(directionToLook);
+            }
         }
     }
 }
