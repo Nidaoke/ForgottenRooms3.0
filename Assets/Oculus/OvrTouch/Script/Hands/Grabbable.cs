@@ -31,7 +31,7 @@ namespace OVRTouchSample
         private bool m_PreventKinematic = false;
 
         public bool resetPositionOnGrabEnd;
-        public Vector3 startingPosition;
+        GameObject childObjectToGoBackTo = null;
 
         public bool AllowOffhandGrab
         {
@@ -90,7 +90,7 @@ namespace OVRTouchSample
 
             if (resetPositionOnGrabEnd)
             {
-                transform.position = startingPosition;
+                transform.position = childObjectToGoBackTo.transform.position;
             }
 
             //TFR Edit
@@ -126,7 +126,13 @@ namespace OVRTouchSample
         private void Start()
         {
             m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
-            startingPosition = transform.position;
+            if (resetPositionOnGrabEnd)
+            {
+                childObjectToGoBackTo = new GameObject();
+                childObjectToGoBackTo.name = "ChildObjectToGoBackTo";
+                childObjectToGoBackTo.transform.parent = GetComponent<TFRGrabbableParentObjectMove>().objectToMove.transform;
+                childObjectToGoBackTo.transform.localPosition = Vector3.zero;
+            }
         }
 
         private void OnDestroy()
