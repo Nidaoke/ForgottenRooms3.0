@@ -438,7 +438,8 @@ namespace OVRTouchSample
                 m_grabbedObj = closestGrabbable;
 
                 // TFR Edit
-                m_TFRHandScript.m_GrabbedObject = m_grabbedObj.gameObject;
+                m_TFRHandScript.m_GrabbedObject = closestGrabbable.gameObject;
+                Debug.Log("Object is: " + closestGrabbable.gameObject);
 
                 m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
                 m_grabbedHandPose = m_grabbedObj.HandPose;

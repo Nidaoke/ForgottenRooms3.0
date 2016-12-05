@@ -25,14 +25,14 @@ public class TFRHandScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_GrabbedObject != null && OVRInput.Get(OVRInput.RawButton.A))
+        if (m_GrabbedObject != null && OVRInput.GetUp(OVRInput.RawButton.A))
         {
             // We've tried to 'Collect' an Object, tell the Dock Manager.
             bool SeqObj = false;
             // Is the Object a Seq Object?
             if (m_GrabbedObject.GetComponent<TFRRandomObject>().m_ScrollObject != null)
                 SeqObj = true;
-            m_RightBracelet.AmIWanted(m_GrabbedObject, SeqObj);
+            m_RightBracelet.AmIWanted(m_GrabbedObject.GetComponent<TFRRandomObject>().m_ItemName, SeqObj);
 
             if (m_DebugMode)
                 Debug.Log("Player tried to collect Object: " + m_GrabbedObject.name + ". Seq Object: " + SeqObj);
