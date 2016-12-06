@@ -12,7 +12,7 @@ using OVRTouchSample;
 namespace OVRTouchSample
 {
 
-    [RequireComponent(typeof(ParticleSystem))]
+    //[RequireComponent(typeof(ParticleSystem))]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(VelocityTracker))]
     // TFR EDIT
@@ -69,14 +69,16 @@ namespace OVRTouchSample
         private Transform m_gripTransform = null;
         [SerializeField]
         private Animator m_animator = null;
-        [SerializeField]
-        private float m_particleEmissionRateVelocityScale = 50.0f;
+        // TFR Edit
+        /*[SerializeField]
+        private float m_particleEmissionRateVelocityScale = 50.0f;*/
         [SerializeField]
         private Collider[] m_grabVolumes = null;
         [SerializeField]
         private HandPose m_defaultGrabPose;
 
-        private ParticleSystem m_particles;
+        //TFR Edit
+        //private ParticleSystem m_particles;
         private TrackedController m_trackedController = null;
         private VelocityTracker m_velocityTracker = null;
         private Collider[] m_colliders = null;
@@ -144,7 +146,8 @@ namespace OVRTouchSample
 
         private void Start()
         {
-            m_particles = GetComponent<ParticleSystem>();
+            // TFR Edit
+            //m_particles = GetComponent<ParticleSystem>();
 
             // Collision starts disabled. We'll enable it for certain cases such as making a fist.
             m_colliders = this.GetComponentsInChildren<Collider>().Where(childCollider => !childCollider.isTrigger).ToArray();
@@ -176,10 +179,13 @@ namespace OVRTouchSample
 
         private void Update()
         {
+            // TFR EDIT
+            /*
             ParticleSystem.EmissionModule emission = m_particles.emission;
             var rateCurve = emission.rate;
             rateCurve.constantMax = m_velocityTracker.TrackedLinearVelocity.magnitude * m_particleEmissionRateVelocityScale;
             emission.rate = rateCurve;
+            */
 
             float prevFlex = m_flex;
 
@@ -218,12 +224,19 @@ namespace OVRTouchSample
                 if (m_RealHand.activeSelf)
                     m_RealHand.SetActive(false);
                 if (!m_OculusHand.activeSelf)
+                {
                     m_OculusHand.SetActive(true);
+                    m_animator = m_OculusHand.GetComponent<Animator>();
+                }
             }
             else
             {
                 if (!m_RealHand.activeSelf)
+                {
                     m_RealHand.SetActive(true);
+                    m_animator = m_RealHand.GetComponent<Animator>();
+                }
+
                 if (m_OculusHand.activeSelf)
                     m_OculusHand.SetActive(false);
             }
