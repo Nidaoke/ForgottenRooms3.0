@@ -16,15 +16,24 @@ namespace OVRTouchSample
     {
 
         [Header("This script allows movement of draws etc.")]
-
         [Tooltip("Which Axis can it move on?")]
-        public bool moveX, moveY, moveZ;
+        public bool moveX;
+        public bool moveY;
+        public bool moveZ;
         [Space(20)]
         [Tooltip("The Min & Max movement on these Axis?")]
-        public float maxX, maxY, maxZ, minX, minY, minZ;
+        public float maxX;
+        public float maxY;
+        public float maxZ;
+        [Space(20)]
+        public float minX;
+        public float minY;
+        public float minZ;
         [Space(20)]
         [Tooltip("The gameobject we're moving?")]
         public GameObject objectToMove;
+        [Tooltip("Where does the handle respawn to?")]
+        public GameObject HandleRespawn;
 
         // Private paremeters
         private Grabbable grabbable;

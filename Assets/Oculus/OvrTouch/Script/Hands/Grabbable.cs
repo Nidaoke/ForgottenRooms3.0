@@ -16,6 +16,10 @@ namespace OVRTouchSample
         [Header("Edits to script commented //TFR EDIT")]
         public bool m_IsInWall;
         Transform m_BeforeWallPos;
+        public bool m_resetPositionOnGrabEnd;
+        TFRGrabbableParentObjectMove HandlePosMove;
+        TFRGrabbableParentObjectRotate HandlePosRot;
+
 
         [SerializeField]
         private bool m_allowOffhandGrab = true;
@@ -30,8 +34,6 @@ namespace OVRTouchSample
         [SerializeField]
         private bool m_PreventKinematic = false;
 
-        public bool resetPositionOnGrabEnd;
-        GameObject childObjectToGoBackTo = null;
 
         public bool AllowOffhandGrab
         {
@@ -88,12 +90,9 @@ namespace OVRTouchSample
             m_grabbedHand = null;
             m_grabbedCollider = null;
 
-            if (resetPositionOnGrabEnd)
-            {
-                transform.position = childObjectToGoBackTo.transform.position;
-            }
-
             //TFR Edit
+
+            // If we're in the wall
             if (m_IsInWall)
             {
                 this.transform.position = m_BeforeWallPos.position;
@@ -104,6 +103,21 @@ namespace OVRTouchSample
             {
                 rb.velocity = linearVelocity;
                 rb.angularVelocity = angularVelocity;
+            }
+
+
+            // If we're snapping back to our original position
+            if (m_resetPositionOnGrabEnd)
+            {
+                // Then do so here.
+                if (HandlePosMove != null)
+                {
+                    this.transform.position = HandlePosMove.HandleRespawn.transform.position;
+                }
+                else
+                {
+                    this.transform.position = HandlePosRot.HandleRespawn.transform.position;
+                }
             }
         }
 
@@ -126,8 +140,11 @@ namespace OVRTouchSample
         private void Start()
         {
             m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
-            if (resetPositionOnGrabEnd)
+
+            // TFR Edit
+            if (m_resetPositionOnGrabEnd)
             {
+<<<<<<< HEAD
                 childObjectToGoBackTo = new GameObject();
                 childObjectToGoBackTo.name = "ChildObjectToGoBackTo";
                 if (GetComponent<TFRGrabbableParentObjectMove>() != null)
@@ -135,6 +152,17 @@ namespace OVRTouchSample
                 else if (GetComponent<TFRGrabbableParentObjectRotate>() != null)
                     childObjectToGoBackTo.transform.parent = GetComponent<TFRGrabbableParentObjectRotate>().objectToRotate.transform;
                 childObjectToGoBackTo.transform.position = (Vector3.zero + transform.position);
+=======
+                // Find the script to get local position or respawn
+                if (GetComponent<TFRGrabbableParentObjectMove>())
+                {
+                    HandlePosMove = GetComponent<TFRGrabbableParentObjectMove>();
+                }
+                if (GetComponent<TFRGrabbableParentObjectRotate>())
+                {
+                    HandlePosRot = GetComponent<TFRGrabbableParentObjectRotate>();
+                }
+>>>>>>> f8a0c412a1532a117f02191028eee723e19c6419
             }
         }
 
