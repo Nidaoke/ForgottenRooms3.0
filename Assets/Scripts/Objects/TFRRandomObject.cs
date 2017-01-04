@@ -18,8 +18,6 @@ public class TFRRandomObject : MonoBehaviour
     public GameObject m_HologramObject;
     [Tooltip("The Scroll Gameobject, if it goes to the Cuff")]
     public GameObject m_ScrollObject;
-    [Tooltip("The name of this object.")]
-    public string m_ItemName;
 
     // Private parameters
 

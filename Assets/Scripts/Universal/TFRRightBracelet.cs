@@ -104,16 +104,16 @@ public class TFRRightBracelet : MonoBehaviour
     }
 
     // Called by the hand when an Object is collected.
-    public void AmIWanted(string Object, bool GoToScroll)
+    public void AmIWanted(GameObject Object, bool GoToScroll)
     {
         for (int i = 0; i < m_BraceletDocks.Count; i++)
         {
-            if (m_BraceletDocks[i].m_ItemName == Object)
+            if (m_BraceletDocks[i].m_MyObject == Object)
             {
                 // The Object matches this Dock
 
                 if (m_DebugMode)
-                    Debug.Log(Object + " is wanted by " + m_BraceletDocks[i].name);
+                    Debug.Log(Object.name + " is wanted by " + m_BraceletDocks[i].name);
                 // Make the Object dissapear
 
                 // Is it a Seq Object?
@@ -122,17 +122,12 @@ public class TFRRightBracelet : MonoBehaviour
                     // Make the Object appear in the Scroll
 
                     if (m_DebugMode)
-                        Debug.Log(Object + " was sent to the scroll as a Seq Item.");
+                        Debug.Log(Object.name + " was sent to the scroll as a Seq Item.");
                 }
 
                 // Remove the Object from the Right Scroll and get a new one.
                 AssignNewObject(i);
                 break;
-            }
-            else
-            {
-                if (m_DebugMode)
-                    Debug.Log("The object " + Object + " is not wanted by Bracelet spot " + m_BraceletDocks[i] + " .");
             }
         }
     }

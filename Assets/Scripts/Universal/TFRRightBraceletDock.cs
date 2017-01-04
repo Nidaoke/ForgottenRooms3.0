@@ -32,7 +32,6 @@ public class TFRRightBraceletDock : MonoBehaviour
     [Tooltip("The GameObject we've been assigned - Do not edit.")]
     [SerializeField]
     public TFRRandomObject m_MyObject;
-    public string m_ItemName;
 
     // Private parameters
     bool m_ShowingHolo;
@@ -56,7 +55,7 @@ public class TFRRightBraceletDock : MonoBehaviour
         {
             m_MyObject = Object.GetComponent<TFRRandomObject>();
             m_ObjectImage.sprite = m_MyObject.m_ObjectSprite;
-            m_ItemName = m_MyObject.m_ItemName;
+
             // Remove current Hologram Object.
             Destroy(m_HologramObject.gameObject);
             // Take the new Hologram Object & Instantiate it.
@@ -77,7 +76,6 @@ public class TFRRightBraceletDock : MonoBehaviour
         {
             // No objects left.
             m_MyObject = null;
-            m_ItemName = "None";
             m_ObjectImage.sprite = null; // Need a Default null sprite?
             // Remove the Hologram.
             Destroy(m_HologramObject.gameObject);
