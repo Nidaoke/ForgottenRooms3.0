@@ -1,2 +1,2 @@
-# NewForgottenRooms
-Second Rendition of the Forgotten Rooms repo
+# ForgottenRooms
+A 3-dimensional horror game built for Oculus VR
